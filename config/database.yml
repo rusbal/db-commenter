@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: brew9_dev
+
+test:
+  <<: *default
+  database: db_commenter_test
+
+production:
+  <<: *default
+  database: db_commenter_production
+  username: db_commenter
+  password: <%= ENV['DB_COMMENTER_DATABASE_PASSWORD'] %>

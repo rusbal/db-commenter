@@ -1,0 +1,55 @@
+tr.id {
+  color: darkgreen;
+  > * {
+    font-weight: normal !important;
+  }
+}
+
+tr.foreign-id {
+  color: #325ea8;
+  > * {
+    font-weight: normal !important;
+  }
+}
+
+tr.timestamp {
+  color: #8a5858;
+  > * {
+    font-weight: normal !important;
+  }
+}
+
+.no-comment {
+  color: #ddd;
+}
+
+.small-info {
+  font-size: 0.7em;
+  padding-left: 10px;
+  font-weight: normal;
+}
+
+.column_type {
+  color: #999;
+}
+
+.table {
+  background-color: white;
+}
+
+.table th, .table td {
+  border-top: none !important;
+}
+
+th {
+  width: 1%;
+  white-space: nowrap;
+}
+
+.hidden-column {
+  display: none;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
