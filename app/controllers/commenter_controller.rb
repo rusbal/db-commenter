@@ -2,17 +2,6 @@ class CommenterController < ApplicationController
   before_action :load_comments
 
   def index
-    tables = ActiveRecord::Base.connection.execute(sql).to_a
-    @models = []
-
-    tables.each do |table|
-      model = table["Name"].delete_suffix("s").camelize
-
-      @models << {
-        name: table["Name"],
-        model: Object.const_set(model, Class.new(ActiveRecord::Base))
-      }
-    end
   end
 
   def create
@@ -28,7 +17,21 @@ class CommenterController < ApplicationController
  private
 
   def load_comments
-    @comments
+    # empty_comments = {}
+
+    # model[:model].columns rescue []).each do |column|
+
+    tables = ActiveRecord::Base.connection.execute(sql).to_a
+    @models = []
+
+    tables.each do |table|
+      model = table["Name"].singularize.camelize
+
+      @models << {
+        name: table["Name"],
+        model: Object.const_set(model, Class.new(ActiveRecord::Base))
+      }
+    end
   end
 
   def output

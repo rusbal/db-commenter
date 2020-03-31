@@ -20,9 +20,10 @@ $(function() {
 
   $('#expandAll').on('click', function() {
     if ($(this).is(':checked')) {
-      $('details').attr('open', true)
+      setTableAsActive($('details'), 'hilite-ccc')
     } else {
       $('details').removeAttr('open')
+      $('.row.hilite-ccc').removeClass('hilite-ccc')
     }
   })
 
@@ -81,13 +82,19 @@ function readMode() {
   $('.no-comment').show()
 }
 
-function setTableAsActive(dom) {
+function setTableAsActive(dom, klass = 'hilite') {
   dom.attr('open', true)
-  hilite(dom.parents('.row'))
+  hilite(dom.parents('.row'), klass)
 }
 
-function hilite(row) {
-  $('.row.hilite').removeClass('hilite')
+function hilite(row, klass = 'hilite') {
+  if (klass === 'hilite') {
+    $('.row.hilite')
+      .removeClass('hilite')
+      .addClass('hilite-ccc')
+  }
 
-  row.addClass('hilite')
+  row
+    .removeClass('hilite-ccc')
+    .addClass(klass)
 }
