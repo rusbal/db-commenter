@@ -33,8 +33,14 @@ $(function() {
     hilite($(this).parents('.row'))
   })
 
+  // Edit form
+
   $('.tr-column').on('click', function() {
     readMode()
+
+    $(this)
+      .find('.comment-display')
+      .hide()
 
     $(this)
       .find('form')
@@ -75,11 +81,19 @@ $(function() {
   $('.group-row').on('click', function() {
     hilite($(this))
   })
+
+  $('textarea').on('keyup, focusin', function(e) {
+    while($(this).outerHeight() < (
+      this.scrollHeight + parseFloat($(this).css("borderTopWidth")) + parseFloat($(this).css("borderBottomWidth"))
+    )) {
+      $(this).height($(this).height()+1)
+    }
+  })
 })
 
 function readMode() {
   $('form').hide()
-  $('.no-comment').show()
+  $('.comment-display').show()
 }
 
 function setTableAsActive(dom, klass = 'hilite') {

@@ -1,12 +1,16 @@
 <div class="comment">
-  <span class="with-comment"></span>
+  <div class="comment-display"><%= @comments[table][column].gsub("\n", "<br>").html_safe %></div>
 
   <%= form_with url: commenter_index_path, method: "post", html: { style: "display: none" } do |f| %>
     <%= f.hidden_field :table, id: "table-#{table}-#{column}", value: table %>
     <%= f.hidden_field :column, id: "column-#{table}-#{column}", value: column %>
 
     <div class="input-group">
-      <%= f.text_area :comment, id: "comment-#{table}-#{column}", class: "form-control", required: true, autocomplete: 'off' %>
+      <%= f.text_area :comment,
+        id: "comment-#{table}-#{column}",
+        class: "form-control",
+        value: @comments[table][column],
+        required: true, autocomplete: 'off' %>
     </div>
   <% end %>
 </div>

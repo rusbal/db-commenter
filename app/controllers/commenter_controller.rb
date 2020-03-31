@@ -1,3 +1,6 @@
+# require 'yaml'
+
+
 class CommenterController < ApplicationController
   before_action :load_comments
 
@@ -5,37 +8,55 @@ class CommenterController < ApplicationController
   end
 
   def create
-    require 'yaml'
+    @comments[params[:table]][params[:column]] = params[:comment]
 
-    array_of_hashes = [{:"client-1.domaine.net"=>"www.client-1.domaine.net/index.html/xxxxxx"},{:"client-2.domaine.net"=>"www.client-2.domaine.net/index.html/xxxxxx"}]
-
-    File.open(output, "w") do |file|
-       file.write array_of_hashes.to_yaml
+    File.open(yaml_file, "w") do |file|
+      file.write @comments.to_yaml
     end
   end
 
  private
 
   def load_comments
-    # empty_comments = {}
-
-    # model[:model].columns rescue []).each do |column|
+    @comments = {}
 
     tables = ActiveRecord::Base.connection.execute(sql).to_a
     @models = []
 
     tables.each do |table|
-      model = table["Name"].singularize.camelize
+      model_name = table["Name"].singularize.camelize
+      model = Object.const_set(model_name, Class.new(ActiveRecord::Base))
 
-      @models << {
-        name: table["Name"],
-        model: Object.const_set(model, Class.new(ActiveRecord::Base))
-      }
+      @models << { name: table["Name"], model: model }
+
+      @comments[table["Name"]] = initialize_model_columns(model)
     end
+
+    if File.file?(yaml_file)
+      yaml_values = YAML.load(File.read(yaml_file))
+
+      yaml_values.each do |table_group|
+        table = table_group[0]
+        columns = table_group[1]
+        columns.each do |column, value|
+          @comments[table][column] = value
+        end
+      end
+    end
+  rescue
+    puts "Error:", yaml_values
   end
 
-  def output
-    Rails.root.join('db/comments.yml')
+  def initialize_model_columns(model)
+    columns = {}
+    (model.columns rescue []).each do |column|
+      columns[column.name] = ''
+    end
+    columns
+  end
+
+  def yaml_file
+    @yaml_file ||= Rails.root.join('db/comments.yml')
   end
 
   def sql

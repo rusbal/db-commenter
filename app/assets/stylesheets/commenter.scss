@@ -42,16 +42,11 @@ tr.timestamp {
 }
 
 .hilite-ccc {
-  background-color: #ccc;
+  background-color: #eee;
 }
 
 .table th, .table td {
   border-top: none !important;
-}
-
-th {
-  width: 1%;
-  white-space: nowrap;
 }
 
 .hidden-column {
@@ -63,9 +58,25 @@ th {
 }
 
 .tr-column {
-  cursor: pointer;
+  th {
+    width: 20%;
+  }
+
+  td {
+    width: 80%;
+  }
 }
 
 .mb-100 {
   margin-bottom: 100px;
+}
+
+textarea {
+  overflow: hidden;
+}
+
+.comment-display {
+  background-color: #efefef;
+  padding: 10px;
+  min-height: 2em;
 }
