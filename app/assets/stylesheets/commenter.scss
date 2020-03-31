@@ -20,7 +20,7 @@ tr.timestamp {
 }
 
 .no-comment {
-  color: #ddd;
+  color: #999;
 }
 
 .small-info {
@@ -35,6 +35,10 @@ tr.timestamp {
 
 .table {
   background-color: white;
+}
+
+.hilite {
+  background-color: black;
 }
 
 .table th, .table td {
@@ -52,4 +56,12 @@ th {
 
 .mb-20 {
   margin-bottom: 20px;
+}
+
+.tr-column {
+  cursor: pointer;
+}
+
+.mb-100 {
+  margin-bottom: 100px;
 }

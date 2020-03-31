@@ -1,9 +1,5 @@
 <div class="comment">
-  <% if true %>
-    <span class="no-comment">Click to enter comment for <strong><%= table %>.<%= column %></strong></span>
-  <% else %>
-    <span class="with-comment"></span>
-  <% end %>
+  <span class="with-comment"></span>
 
   <%= form_with url: commenter_index_path, method: "post", html: { style: "display: none" } do |f| %>
     <%= f.hidden_field :table, id: "table-#{table}-#{column}", value: table %>

@@ -1,4 +1,7 @@
 $(function() {
+
+  // Settings
+
   $('#showAll').on('click', function() {
     if ($(this).is(':checked')) {
       $('tr.hidden-column').show()
@@ -25,14 +28,15 @@ $(function() {
 
   $('summary').on('click', function() {
     $(this).blur()
+
+    hilite($(this).parents('.row'))
   })
 
-  $('.no-comment').on('click', function() {
+  $('.tr-column').on('click', function() {
     readMode()
 
     $(this)
-      .hide()
-      .next('form')
+      .find('form')
         .show()
         .find('textarea.form-control').focus()
   })
@@ -54,20 +58,36 @@ $(function() {
       }
     })
 
-  function readMode() {
-    $('form').hide()
-    $('.no-comment').show()
-  }
-
   $('a.foreign-links').on('click', function(evt) {
     evt.preventDefault()
+    evt.stopPropagation()
 
     var id = $(this).attr('href')
     var dom = $('#' + id)
 
     if (dom.length === 0) return
 
-    dom.parent('details').attr('open', true)
+    setTableAsActive(dom.parent('details'))
     dom[0].scrollIntoView()
   })
+
+  $('.group-row').on('click', function() {
+    hilite($(this))
+  })
 })
+
+function readMode() {
+  $('form').hide()
+  $('.no-comment').show()
+}
+
+function setTableAsActive(dom) {
+  dom.attr('open', true)
+  hilite(dom.parents('.row'))
+}
+
+function hilite(row) {
+  $('.row.hilite').removeClass('hilite')
+
+  row.addClass('hilite')
+}
