@@ -2,6 +2,15 @@ $(function() {
 
   // Settings
 
+  $('#editMode').on('click', function() {
+    if ($(this).is(':checked')) {
+      $('.group-row').removeClass('read-mode')
+    } else {
+      $('.group-row').addClass('read-mode')
+      readMode()
+    }
+  })
+
   $('#showAll').on('click', function() {
     if ($(this).is(':checked')) {
       $('tr.hidden-column').show()
@@ -36,6 +45,8 @@ $(function() {
   // Edit form
 
   $('.tr-column').on('click', function() {
+    if (!$('#editMode').is(':checked')) return
+
     readMode()
 
     $(this)

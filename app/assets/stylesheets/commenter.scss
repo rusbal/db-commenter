@@ -39,11 +39,10 @@ tr.timestamp {
 
 .hilite {
   background-color: white;
-  border: 1px dashed black;
 }
 
 .hilite-ccc {
-  background-color: #eee;
+  background-color: #f8f9fa !important;
 }
 
 .table th, .table td {
@@ -56,6 +55,10 @@ tr.timestamp {
 
 .mb-20 {
   margin-bottom: 20px;
+}
+
+.mb-50 {
+  margin-bottom: 50px;
 }
 
 .tr-column {
@@ -76,12 +79,6 @@ textarea {
   overflow: hidden;
 }
 
-.comment-display {
-  background-color: #efefef;
-  padding: 10px;
-  min-height: 2em;
-}
-
 textarea,
 textarea:hover,
 textarea:active,
@@ -91,4 +88,47 @@ textarea:focus {
   -webkit-appearance: none;
   box-shadow: none !important;
   border: none;
+}
+
+.comment-display {
+  background-color: #efefef;
+  padding: 10px;
+  min-height: 2em;
+}
+
+.table th, .table td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+.group-row {
+  margin-bottom: 50px;
+}
+
+.read-mode {
+  .comment-display {
+    background-color: white;
+    padding: 10px;
+    min-height: 2em;
+  }
+
+  .table th, .table td {
+    padding: 0.5rem 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+  }
+}
+
+details[open] {
+  summary {
+    font-size: 1.2em;
+    color: white;
+    background-color: #2e006b;
+    margin-left: -15px !important;
+    margin-right: -15px !important;
+    padding-left: 15px !important;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
 }
