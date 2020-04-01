@@ -8,12 +8,13 @@ require("@rails/ujs").start()
 // require("@rails/activestorage").start()
 // require("channels")
 
-import 'bootstrap'
-import './src/application.scss'
-import "@fortawesome/fontawesome-free/js/all";
+// import 'bootstrap'
+// import './src/application.scss'
+// import "@fortawesome/fontawesome-free/js/all";
 
 // require("popper")
 // require("bootstrap")
+require("jquery")
 require("commenter")
 
 // Uncomment to copy all static images under ../images to the output folder and reference

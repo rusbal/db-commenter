@@ -1,18 +1,21 @@
-# require 'yaml'
-
-
 class CommenterController < ApplicationController
-  before_action :load_comments
 
   def index
+    load_comments
   end
 
   def create
-    @comments[params[:table]][params[:column]] = params[:comment]
+    load_comments
+
+    @table = params[:table]
+    @column = params[:column]
+    @comments[@table][@column] = params[:comment]
 
     File.open(yaml_file, "w") do |file|
       file.write @comments.to_yaml
     end
+
+    render 'create', layout: false
   end
 
  private

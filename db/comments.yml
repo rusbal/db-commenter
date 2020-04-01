@@ -1,21 +1,18 @@
 ---
 about_menus:
   id: ''
-  position: "This is a good cat.\r\nOnce upon a time there was a cat.\r\nAnd then
-    they lived happily ever after.\r\nAnd the cat is good!\r\nyes this is good\r\nOh
-    this is good\r\n1\r\n2\r\n3\r\n4\r\n5\r\n\r\nOk, let's summarize this now.  This
-    is real good. Nice one."
-  name: ''
-  menu_type: ''
-  target: ''
-  company_id: ''
+  position: Make it short and dandy. oks.  Ola.
+  name: Raymond Usbal
+  menu_type: Nice. okey
+  target: olah
+  company_id: this is good
   created_at: ''
   updated_at: ''
 action_issue_vouchers:
   id: ''
-  name: ''
-  member_id: ''
-  member_group_id: ''
+  name: asdf oks Nice okay
+  member_id: Nice one
+  member_group_id: alsdfjalds
   voucher_id: ''
   expiry_date: ''
   push_text: ''
@@ -37,7 +34,7 @@ action_issue_vouchers:
   coupon_code_id: ''
 action_push_broadcasts:
   id: ''
-  name: ''
+  name: oke
   push_text: ''
   member_id: ''
   member_group_id: ''
@@ -51,8 +48,8 @@ action_push_broadcasts:
   send_inbox: ''
 active_admin_comments:
   id: ''
-  namespace: ''
-  body: ''
+  namespace: alsdkfjladskfj
+  body: asdfjadlskfj
   resource_type: ''
   resource_id: ''
   author_type: ''
@@ -62,15 +59,15 @@ active_admin_comments:
   company_id: ''
 activity_logs:
   id: ''
-  admin_user_id: ''
-  action_type: ''
+  admin_user_id: alskdfjdls
+  action_type: alskdfjlk
   record_id: ''
   object_class: ''
   created_at: ''
   updated_at: ''
 admin_users:
   id: ''
-  email: ''
+  email: aldskfjlsak
   encrypted_password: ''
   reset_password_token: ''
   reset_password_sent_at: ''
@@ -85,7 +82,7 @@ admin_users:
   country_code: ''
 alarms:
   id: ''
-  voucher_expiry_notification_id: ''
+  voucher_expiry_notification_id: alsdkfjaldksfj
   before_expired: ''
   time: ''
   send_push: ''
@@ -95,8 +92,8 @@ alarms:
   message: ''
 app_versions:
   id: ''
-  ios_version: ''
-  android_version: ''
+  ios_version: alskdfjaldskfj
+  android_version: alskdfjldksfj
   created_at: ''
   updated_at: ''
 ar_internal_metadata:
@@ -129,7 +126,7 @@ banner_images:
   updated_at: ''
   position: ''
 banner_images_menu_banners:
-  menu_banner_id: ''
+  menu_banner_id: aldkfjaldksf
   banner_image_id: ''
 cashiers:
   id: ''
@@ -358,7 +355,7 @@ member_missions:
   updated_at: ''
 member_unique_devices:
   id: ''
-  member_id: ''
+  member_id: alsdfjadslkjf
   device_key: ''
   push_identifier: ''
   device_type: ''

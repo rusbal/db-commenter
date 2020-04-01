@@ -1,5 +1,7 @@
 <div class="comment">
-  <div class="comment-display"><%= @comments[table][column].gsub("\n", "<br>").html_safe %></div>
+  <div class="comment-display">
+    <%= render 'comment_display', table: table, column: column %>
+  </div>
 
   <%= form_with url: commenter_index_path, method: "post", html: { style: "display: none" } do |f| %>
     <%= f.hidden_field :table, id: "table-#{table}-#{column}", value: table %>

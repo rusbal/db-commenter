@@ -42,10 +42,14 @@ $(function() {
       .find('.comment-display')
       .hide()
 
-    $(this)
+    var textarea = $(this)
       .find('form')
         .show()
-        .find('textarea.form-control').focus()
+        .find('textarea.form-control')
+
+    // Move cursor to end of input
+    var value = textarea.val()
+    textarea.focus().val('').val(value)
   })
 
   $('textarea.form-control')
@@ -112,3 +116,4 @@ function hilite(row, klass = 'hilite') {
     .removeClass('hilite-ccc')
     .addClass(klass)
 }
+

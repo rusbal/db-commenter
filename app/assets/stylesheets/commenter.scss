@@ -38,7 +38,8 @@ tr.timestamp {
 }
 
 .hilite {
-  background-color: black;
+  background-color: white;
+  border: 1px dashed black;
 }
 
 .hilite-ccc {
@@ -79,4 +80,15 @@ textarea {
   background-color: #efefef;
   padding: 10px;
   min-height: 2em;
+}
+
+textarea,
+textarea:hover,
+textarea:active,
+textarea:focus {
+  background-color: #e6f2ff !important;
+  outline: 0px !important;
+  -webkit-appearance: none;
+  box-shadow: none !important;
+  border: none;
 }
