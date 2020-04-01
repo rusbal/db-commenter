@@ -21,7 +21,10 @@ $(function() {
 
   $('textarea').on('blur', function() {
     var comment = $(this).parents('.comment').find('.comment-display').html()
-    $(this).val(comment)
+
+    if (/Empty doc/.test(comment) === false) {
+      $(this).val(comment)
+    }
   })
 
   // Settings
