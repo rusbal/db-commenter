@@ -75,6 +75,10 @@ tr.timestamp {
   margin-bottom: 100px;
 }
 
+.mt-10 {
+  margin-top: 10px;
+}
+
 textarea {
   overflow: hidden;
 }
@@ -120,15 +124,23 @@ textarea:focus {
   }
 }
 
-details[open] {
+details {
   summary {
+    background-image: linear-gradient(to right, #2e006b, black);
     font-size: 1.2em;
     color: white;
-    background-color: #2e006b;
     margin-left: -15px !important;
     margin-right: -15px !important;
     padding-left: 15px !important;
     padding-top: 4px;
     padding-bottom: 4px;
+  }
+}
+
+.hilite {
+  details[open] {
+    summary {
+      background-image: linear-gradient(to right, blue, black);
+    }
   }
 }
