@@ -98,6 +98,7 @@ textarea:focus {
   background-color: #efefef;
   padding: 10px;
   min-height: 2em;
+  border-radius: 4px;
 }
 
 .table th, .table td {
@@ -113,7 +114,6 @@ textarea:focus {
 .read-mode {
   .comment-display {
     background-color: white;
-    padding: 10px;
     min-height: 2em;
   }
 

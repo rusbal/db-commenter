@@ -1,5 +1,29 @@
 $(function() {
 
+  // Remote form submission
+
+  $("form").on("ajax:success", function(event) {
+    var data, status, xhr, _ref
+    _ref = event.detail, data = _ref[0], status = _ref[1], xhr = _ref[2]
+
+    var response = JSON.parse(xhr.responseText)
+    console.log('Success: ', response)
+
+    var table = response[0]
+    var column = response[1]
+    var comment = response[2]
+
+    $(`#comment-display-${table}-${column}`).html(comment)
+
+  }).on("ajax:error", function(event) {
+    console.log('Ajax error')
+  })
+
+  $('textarea').on('blur', function() {
+    var comment = $(this).parents('.comment').find('.comment-display').html()
+    $(this).val(comment)
+  })
+
   // Settings
 
   $('#editMode').on('click', function() {
@@ -74,8 +98,11 @@ $(function() {
     })
     .keypress(function (e) {
       var code = (e.keyCode ? e.keyCode : e.which);
+
       if (code === 13) {
-        $(this).closest('form').submit()
+        $(this).parents('form')
+          .find('input[name=commit]').click()
+
         return true
       }
     })

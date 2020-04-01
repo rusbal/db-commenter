@@ -1,5 +1,5 @@
 <div class="comment">
-  <div class="comment-display">
+<div class="comment-display" id="comment-display-<%= "#{table}-#{column}" %>">
     <%= render 'comment_display', table: table, column: column %>
   </div>
 
@@ -14,5 +14,6 @@
         value: @comments[table][column],
         required: true, autocomplete: 'off' %>
     </div>
+    <div style="display: none"><%= f.submit %></div>
   <% end %>
 </div>

@@ -9,13 +9,17 @@ class CommenterController < ApplicationController
 
     @table = params[:table]
     @column = params[:column]
+    @comment = params[:comment]
+
     @comments[@table][@column] = params[:comment]
 
     File.open(yaml_file, "w") do |file|
       file.write @comments.to_yaml
     end
 
-    render 'create', layout: false
+    respond_to do |format|
+      format.json
+    end
   end
 
  private
