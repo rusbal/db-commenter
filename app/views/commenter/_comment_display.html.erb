@@ -1,1 +1,7 @@
-<%= @comments[table][column].gsub("\n", "<br>").html_safe %>
+<% comment = @comments[table][column].gsub("\n", "<br>") %>
+
+<% if comment.present? %>
+  <%= comment.html_safe %>
+<% else %>
+ <pre class="empty-doc">Empty doc</pre>
+<% end %>
